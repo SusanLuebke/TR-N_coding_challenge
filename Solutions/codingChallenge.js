@@ -36,7 +36,7 @@ class marsRover {
     constructor(gridDimension = 5) {
         this.currentPosition = [0, 0];
         this.compassPoints = ["N", "E", "W", "S"];
-        this.direction = "N";
+        this.direction = "0";
 
     }
 } 

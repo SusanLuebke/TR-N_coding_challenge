@@ -10,5 +10,10 @@ describe('marsRover', () => {
     let newRover = new marsRover;
     expect(newRover.currentPosition).toEqual([0, 0]);
   })
+
+  test("Has an initial compassPoint that is "N" || "E" || "W" || "S"", () => {
+    let newRover = new marsRover;
+    expect(newRover.currentPosition).toEqual([0, 0]);
+  })
 })
 
