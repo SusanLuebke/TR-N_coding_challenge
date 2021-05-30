@@ -1,1 +1,2 @@
-# TR-N_coding_challenge
+# codingChallenge
+TR-N Coding Challenge, task for interview
