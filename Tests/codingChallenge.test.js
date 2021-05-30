@@ -1,13 +1,14 @@
-const { codingChallenge } = require("../Solutions/codingChallenge"); 
-let rover = codingChallenge;
+const { marsRover } = require("../Solutions/codingChallenge"); 
+
 
 // beforeEach(() => {
 //   rover = new Rover();
 // });
 
-describe('rover', () => {
-  test("Has an initial position of zero", () => {
-    expect(rover.direction).toEqual(0);
+describe('marsRover', () => {
+  test("Has an initial position of [0, 0]", () => {
+    let newRover = new marsRover;
+    expect(newRover.currentPosition).toEqual([0, 0]);
   })
 })
 

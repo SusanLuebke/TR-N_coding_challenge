@@ -32,12 +32,16 @@ W: {
 // move, direction, possibly track (class structure first, restructure with functional prog)
 // classes rover, plateau
 
-class marsRover = 
+class marsRover {
+    constructor(gridDimension = 5) {
+        this.currentPosition = [0, 0];
+        this.compassPoints = ["N", "E", "W", "S"];
+        this.direction = "N";
 
-// const marsRover = (location, direction, grid, obstacles) => {
-//     const location = (location === undefined) ? [0, 0] : location;
-//     const direction = (direction )
-// }
+    }
+} 
+
+
 
 
 
@@ -47,7 +51,7 @@ class marsRover =
 
 // in order to export
 module.exports = {
-    codingChallenge,
+    marsRover,
 };
 
 
