@@ -1,19 +1,24 @@
-const { marsRover } = require("../Solutions/codingChallenge"); 
-
+const { marsRover } = require("../Solutions/codingChallenge");
 
 // beforeEach(() => {
 //   rover = new Rover();
 // });
 
-describe('marsRover', () => {
+describe("marsRover", () => {
   test("Has an initial position of [0, 0]", () => {
-    let newRover = new marsRover;
-    expect(newRover.currentPosition).toEqual([0, 0]);
-  })
+    let newRover = new marsRover([0, 0], "N");
+    expect(newRover.currentPosition_xy).toEqual([0, 0]);
+    expect(newRover.direction).toEqual("N");
+  });
 
-  test("Has an initial compassPoint that is "N" || "E" || "W" || "S"", () => {
-    let newRover = new marsRover;
-    expect(newRover.currentPosition).toEqual([0, 0]);
-  })
-})
+  test("With compassPoint N, 'L' point is 'W'", () => {
+    let newRover = new marsRover();
+    expect(newRover.compassPoints[`N`][`L`]).toEqual("W");
+  });
 
+  test("Rotate right signifies east, 'E'", () => {
+    let newRover = new marsRover([0,0], 'N');
+    expect(newRover.rotate(`R`)).toEqual("E");
+  });
+
+});

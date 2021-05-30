@@ -31,12 +31,18 @@ W: {
 
 // move, direction, possibly track (class structure first, restructure with functional prog)
 // classes rover, plateau
+// rotate, move, execute
+// return the command when passed through
 
 class marsRover {
-    constructor(gridDimension = 5) {
-        this.currentPosition = [0, 0];
-        this.compassPoints = ["N", "E", "W", "S"];
-        this.direction = "0";
+    constructor(position, direction) {
+        this.currentPosition_xy = position;
+        this.compassPoints = compassPoints;
+        this.direction = direction;
+    }
+
+    rotate(direction) {
+        return "E";
 
     }
 } 
