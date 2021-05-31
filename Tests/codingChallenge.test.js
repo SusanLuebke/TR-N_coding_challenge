@@ -19,8 +19,8 @@ describe("marsRover", () => {
   });
 
   test("Rover can move when given instructions", () => {
-    newRover.move('LMLM')
-    expect(newRover.currentPosition_xy).toEqual([1, 1]);
+    newRover.move()
+    expect(newRover.currentPosition_xy).toEqual([0, 1]);
   });
 
 

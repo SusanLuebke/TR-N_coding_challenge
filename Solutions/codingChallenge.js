@@ -38,18 +38,27 @@ const compassPoints = {
 class marsRover {
   constructor(currentPosition, direction, obstacles) {
     this.currentPosition_xy =
-      (this.currentPosition_xy === undefined) ? [0, 0] : this.currentPosition_xy;
-    this.direction = (this.direction === undefined) ? "N" : this.direction; // NEWS
-    this.obstacles = (this.obstacles === undefined) ? [] : this.obstacles;
+      this.currentPosition_xy === undefined ? [0, 0] : this.currentPosition_xy;
+    this.direction = this.direction === undefined ? "N" : this.direction; // NEWS, LR
+    this.obstacles = this.obstacles === undefined ? [] : this.obstacles;
     this.compassPoints = compassPoints;
-
   }
 
   rotate(direction) {
     return "E";
   }
 
-  // move()
+  move() {
+    if ((this.direction = "N")) {
+      this.currentPosition_xy[1] += 1;
+    } else if ((this.direction = "E")) {
+      this.currentPosition_xy[0] += 1;
+    } else if ((this.direction = "W")) {
+      this.currentPosition_xy[0] -= 1;
+    } else if ((this.direction = "S")) {
+      this.currentPosition_xy[1] -= 1;
+    }
+  }
 }
 
 // in order to export
