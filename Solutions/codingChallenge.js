@@ -30,24 +30,26 @@
 //   },
 // };
 
+// Mars Rover: Perseverence
 class marsRover {
   constructor(currentPosition_xy, direction, obstacles) {
     this.currentPosition_xy =
-      this.currentPosition_xy === undefined ? [0, 0] : currentPosition_xy;
-    this.direction = this.direction === undefined ? "N" : direction; // NESW, LR
-    this.obstacles = this.obstacles === undefined ? [] : obstacles;
+      currentPosition_xy === undefined ? [0, 0] : currentPosition_xy;
+    this.direction = direction === undefined ? "N" : direction; // NESW, LR
+    this.obstacles = obstacles === undefined ? [] : obstacles;
     this.compassPoints = ["N", "E", "S", "W"];
-    this.compassPointsIndex = 0;
+    this.compassPointsIndex = this.compassPoints.indexOf(this.direction); // index 0 to length
   }
 
   rotate(leftOrRight) {
+    // turn L or R
     if (leftOrRight === "L") {
-      this.compassPointsIndex = this.compassPointsIndex - 1;
+      this.compassPointsIndex = this.compassPointsIndex - 1; // left is -1
       if (this.compassPointsIndex < 0) {
         this.compassPointsIndex += 4;
       }
     } else {
-      this.compassPointsIndex = (this.compassPointsIndex + 1) % 4;
+      this.compassPointsIndex = (this.compassPointsIndex + 1) % 4; // right is +1
     }
     this.direction = this.compassPoints[this.compassPointsIndex];
     return this.direction;
@@ -60,12 +62,14 @@ class marsRover {
       this.currentPosition_xy[0] = (this.currentPosition_xy[0] + 1) % 6;
     } else if (this.direction === "W") {
       this.currentPosition_xy[0] -= 1;
-      if (this.currentPosition_xy[0] < 0) { // addresses roll over case, neg
+      if (this.currentPosition_xy[0] < 0) {
+        // addresses roll over case, neg
         this.currentPosition_xy[0] += 6;
       }
     } else if (this.direction === "S") {
       this.currentPosition_xy[1] -= 1;
-      if (this.currentPosition_xy[1] < 0) { // addresses roll over case, neg
+      if (this.currentPosition_xy[1] < 0) {
+        // addresses roll over case, neg
         this.currentPosition_xy[1] += 6;
       }
     }
@@ -80,7 +84,8 @@ class marsRover {
         this.move();
       }
     }
-
+    console.log(this.currentPosition_xy);
+    console.log(this.direction);
     return [this.currentPosition_xy, this.direction];
   }
 }
