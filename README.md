@@ -65,7 +65,7 @@ Future considerations may include, but are not limited to:
     - Example: "You are here!"
     - Source: NASA, "Ingenuity Looks West", taken May 22, 2021
 
-    ![image](Documents\NASA_Ingenuity_Looks_West_PIA24600.png)
+    ![image from Mars rover](./Documents\NASA_Ingenuity_Looks_West_PIA24600.png)
 
 
 
