@@ -9,7 +9,7 @@ class marsRover {
    * @param {array} currentPosition_xy - the input, updated based on command
    * @param {string} direction - current direction, N, E, S or W, rover is facing; used in conjuction with currentPosition_xy
    * @param {array} grid_xy - The upper right coordinates of the plateau; lower left coordinates assumed to be 0, 0
-   * @param {array} obstacles - An array of x,y coordinates of known obstacle locations on the plateau; dead rovers, rocks, canyons, etc.
+   * @param {array} obstacles - An array of x,y coordinates of known obstacle locations on the plateau; defunct rovers, rocks, canyons, etc.
    */
 
   constructor(currentPosition_xy, direction, grid_xy, obstacles) {
@@ -43,17 +43,17 @@ class marsRover {
   move() {
     console.log(this.grid_xy);
     if (this.direction === 'N') {
-      if (!this.checkObstacles()) {
+      if (!this.hasObstacles()) {
         this.currentPosition_xy[1] =
           (this.currentPosition_xy[1] + 1) % (this.grid_xy[1] + 1); // use modulo to return 0 for pos no.
       }
     } else if (this.direction === 'E') {
-      if (!this.checkObstacles()) {
+      if (!this.hasObstacles()) {
         this.currentPosition_xy[0] =
           (this.currentPosition_xy[0] + 1) % (this.grid_xy[0] + 1); // use modulo to return 0 for pos no.
       }
     } else if (this.direction === 'S') {
-      if (!this.checkObstacles()) {
+      if (!this.hasObstacles()) {
         this.currentPosition_xy[1] -= 1;
         if (this.currentPosition_xy[1] < 0) {
           // addresses roll over case, neg
@@ -61,7 +61,7 @@ class marsRover {
         }
       }
     } else if (this.direction === 'W') {
-      if (!this.checkObstacles()) {
+      if (!this.hasObstacles()) {
         this.currentPosition_xy[0] -= 1;
         if (this.currentPosition_xy[0] < 0) {
           // addresses roll over case, neg
@@ -86,7 +86,7 @@ class marsRover {
   }
 
   // Future bolt on to test for obstacles, currently hard coded to false
-  checkObstacles(currentPosition_xy, direction) {
+  hasObstacles(currentPosition_xy, direction) {
     // Check if an obstacle will come into play
     return false;
   }

@@ -14,9 +14,6 @@ TR-N Coding Challenge / Mars Rover Kata
 
 Input required / Unit testing framework / TDD approach (red, green, refactor)
 
-## Visuals
-
-
 ## Prerequisites
 
 ```javascript
@@ -59,12 +56,29 @@ MMRMMRMRRM
 ```
 
 ## Roadmap
+Future considerations may include, but are not limited to:
+- Input caputure for accessibility considerations (collect helpful user data, to determine most likely presets for future updates)
+- Expand obstacle detection and avoidance capabilities of defunct rovers, rocks, canyons, etc.
+- Informational chatbot (to provide educational information about the rover, region, data collected, signs of microbial life, how to become involved/support, suggested names for the next rover, etc.)
+    - Example: "You've encourtered the Valles Marineris, a system of canyons 2,500 miles long; 3x deeper than the Grand Canyon in Arizona! You'll need to choose a new path."
+- Input option for x, y coordinates to receive back an image of that exact location
+    - Example: "You are here!"
+    - Source: NASA, "Ingenuity Looks West", taken May 22, 2021
+
+    ![image](Documents\NASA.Ingenuity_Looks_West_PIA24600.png)
+
+
 
 ## Project Status
+Additional beyond scope features include:
+- Handles edge cases for sphere simulation
+- Handles the input of x, y coordinates and direction rather than static starting point of [0, 0], 'N'
+- Refectored with forEach for dry code
+- Added cursory bones of obstacle for future consideration
 
 ## Contributing
 
-As this exercise is a technical test for employment, the project is private, and not open to contributions.
+As this exercise is a technical test for employment, the project is currently not open to contributions.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
