@@ -60,7 +60,7 @@ Future considerations may include, but are not limited to:
 - Input caputure for accessibility considerations (collect helpful user data, to determine most likely presets for future updates)
 - Expand obstacle detection and avoidance capabilities of defunct rovers, rocks, canyons, etc.
 - Informational chatbot (to provide educational information about the rover, region, data collected, signs of microbial life, how to become involved/support, suggested names for the next rover, etc.)
-    - Example: "You've encourtered the Valles Marineris, a system of canyons 2,500 miles long; 3x deeper than the Grand Canyon in Arizona! You'll need to choose a new path."
+    - Example: "You've encountered the Valles Marineris, a system of canyons 2,500 miles long; 3x deeper than the Grand Canyon in Arizona! You'll need to choose a new path."
 - Input option for x, y coordinates to receive back an image of that exact location
     - Example: "You are here!"
     - Source: NASA, "Ingenuity Looks West", taken May 22, 2021
@@ -73,7 +73,7 @@ Future considerations may include, but are not limited to:
 Additional beyond scope features include:
 - Handles edge cases for sphere simulation
 - Handles the input of x, y coordinates and direction rather than static starting point of [0, 0], 'N'
-- Refectored with forEach for dry code
+- Refactored with forEach for dry code
 - Added cursory bones of obstacle function for future consideration
 
 ## Contributing
