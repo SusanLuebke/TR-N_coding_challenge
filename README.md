@@ -3,7 +3,7 @@ TR-N Coding Challenge / Mars Rover Kata
 
 - A squad of robotic rovers by NASA are set to land on a plateau on Mars. This plateau, which is curiously rectangular, must be navigated by the rovers so that their on board cameras can obtain a complete view of the surrounding terrain to send back to Earth. 
 
-- A rover's position is represented as [0, 0, N]; which is defined as the bottom left corner of the rectangular plateau, facing north. Compass directions may be 'N', 'E', 'W', 'S'; north, east, west, south respectively.  
+- A rover's position is represented as [0, 0], 'N'; which is defined as the bottom left corner of the rectangular plateau, facing north. Compass directions may be 'N', 'E', 'W', 'S'; north, east, west, south respectively.  
 
 - Rover movement is determined by a string: 'L', 'R' or 'M.'
 'L' and 'R' spin the rover 90 degrees without movement, whereas 'M' moves the rover forward one grid point while maintaining the same direction.
@@ -74,7 +74,7 @@ Additional beyond scope features include:
 - Handles edge cases for sphere simulation
 - Handles the input of x, y coordinates and direction rather than static starting point of [0, 0], 'N'
 - Refectored with forEach for dry code
-- Added cursory bones of obstacle for future consideration
+- Added cursory bones of obstacle function for future consideration
 
 ## Contributing
 
