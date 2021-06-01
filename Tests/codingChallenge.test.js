@@ -1,7 +1,7 @@
 const { marsRover } = require("../Solutions/codingChallenge");
 
 beforeEach(() => {
-  newRover = new marsRover([0, 0], "N");
+  newRover = new marsRover([0, 0], "N", [5, 5]);
 });
 
 describe("marsRover", () => {
@@ -60,16 +60,17 @@ describe("marsRover", () => {
   // Test cases as provided within Kata
 
   test("Test case 1 from Mars Rover Kata; long scenerio", () => {
-    newRover = new marsRover([1, 2], "N");
+    newRover = new marsRover([1, 2], "N", [5, 5]);
     let command = "LMLMLMLMM";
     answer = newRover.execute(command);
     expect(answer).toEqual([[1, 3], "N"]);
   });
 
   test("Test case 2 from Mars Rover Kata; long scenerio", () => {
-    newRover = new marsRover([3, 3], "E");
+    newRover = new marsRover([3, 3], "E", [5, 5]);
     let command = "MMRMMRMRRM";
     answer = newRover.execute(command);
     expect(answer).toEqual([[5, 1], "E"]);
   });
+
 });
