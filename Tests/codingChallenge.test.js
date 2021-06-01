@@ -1,5 +1,6 @@
 const { marsRover } = require("../Solutions/codingChallenge");
 
+// Default setting is [0, 0], 'N' of a 5 x 5 grid
 beforeEach(() => {
   newRover = new marsRover([0, 0], "N", [5, 5]);
 });
@@ -73,4 +74,11 @@ describe("marsRover", () => {
     expect(answer).toEqual([[5, 1], "E"]);
   });
 
+  // Future Test for obstacle(s)
+  // test("Test for a obstacle", () => {
+  //   newRover = new marsRover([0, 0], "N", [5, 5], [1, 1]);
+  //   let command = "MRM";
+  //   answer = newRover.execute(command);
+  //   expect(answer).toEqual([[0, 1], "E"]);
+  // });
 });
