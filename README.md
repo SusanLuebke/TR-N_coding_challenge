@@ -14,6 +14,10 @@ TR-N Coding Challenge / Mars Rover Kata
 
 Input required / Unit testing framework / TDD approach (red, green, refactor)
 
+## Project Board
+
+Feel free to take a gander at my linked Kanban Board at https://github.com/users/SusanLuebke/projects/1
+
 ## Prerequisites
 
 ```javascript
@@ -57,7 +61,7 @@ MMRMMRMRRM
 
 ## Roadmap
 Future considerations may include, but are not limited to:
-- Input caputure for accessibility considerations (collect helpful user data, to determine most likely presets for future updates)
+- Input capture for accessibility considerations (collect helpful user data, to determine most likely presets for future updates)
 - Expand obstacle detection and avoidance capabilities of defunct rovers, rocks, canyons, etc.
 - Informational chatbot (to provide educational information about the rover, region, data collected, signs of microbial life, how to become involved/support, suggested names for the next rover, etc.)
     - Example: "You've encountered the Valles Marineris, a system of canyons 2,500 miles long; 3x deeper than the Grand Canyon in Arizona! You'll need to choose a new path."
