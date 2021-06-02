@@ -24,7 +24,7 @@ class marsRover {
       !Number.isInteger(currentPosition_xy[0]) &&
       !Number.isInteger(currentPosition_xy[1])
     ) {
-      throw 'X, Y coordinates must be an array of integers';
+      throw '[x, y] coordinates must be an array of integers';
     }
     if (!Number.isInteger(grid_xy[0]) && !Number.isInteger(grid_xy[1])) {
       throw 'Grid (i.e. plateau) coordinates must be integers';
