@@ -74,6 +74,15 @@ describe('marsRover', () => {
     expect(answer).toEqual([[5, 1], 'E']);
   });
 
+  // Test for an uneven plateau, i.e. grid 
+
+  test('Test for an uneven plateau/grid', () => {
+    newRover = new marsRover([0, 0], 'N', [2, 5]);
+    let command = 'MMMMMMRMMM';
+    answer = newRover.execute(command);
+    expect(answer).toEqual([[0, 0], 'E']);
+  });
+
   // Future Test for obstacle(s)
   // test("Test for a obstacle", () => {
   //   newRover = new marsRover([0, 0], "N", [5, 5], [1, 1]);
@@ -81,4 +90,5 @@ describe('marsRover', () => {
   //   answer = newRover.execute(command);
   //   expect(answer).toEqual([[0, 1], "E"]);
   // });
+
 });
