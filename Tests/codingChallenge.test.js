@@ -74,13 +74,33 @@ describe('marsRover', () => {
     expect(answer).toEqual([[5, 1], 'E']);
   });
 
-  // Test for an uneven plateau, i.e. grid 
+  // Test for an asymmetrical grid (i.e. plateau); rather than 6 x 6, 2 x 5
 
   test('Test for an uneven plateau/grid', () => {
     newRover = new marsRover([0, 0], 'N', [2, 5]);
     let command = 'MMMMMMRMMM';
     answer = newRover.execute(command);
     expect(answer).toEqual([[0, 0], 'E']);
+  });
+
+  // Test to verify input as correct format
+
+  test('Throws an error if direction is not N, E, S or W', () => {
+    expect(() => {
+      new marsRover([1, 1], 'north', [5, 5]);
+    }).toThrow('Direction coordinates must be N, E, S or W');
+  });
+
+  test('Throws an error if [x, y] coordinates are not integers', () => {
+    expect(() => {
+      new marsRover(['one', 'one'], 'N', [5, 5]);
+    }).toThrow('X, Y coordinates must be an array of integers');
+  });
+
+  test('Throws an error if Grid (i.e. plateau) coordinates are not integers', () => {
+    expect(() => {
+      new marsRover([1, 1], 'N', ['five', 'five']);
+    }).toThrow('Grid (i.e. plateau) coordinates must be integers');
   });
 
   // Future Test for obstacle(s)
@@ -90,5 +110,4 @@ describe('marsRover', () => {
   //   answer = newRover.execute(command);
   //   expect(answer).toEqual([[0, 1], "E"]);
   // });
-
 });

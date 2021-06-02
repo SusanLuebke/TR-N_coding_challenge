@@ -1,3 +1,5 @@
+// Future Sprint Consideration, break out Grid and Obstacles into separate class
+
 export default class Grid {
     constructor (grid_xy, obstacles) {
       if (!Number.isInteger(grid_xy) || !Number.isInteger(grid_xy)) {

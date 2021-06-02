@@ -1,6 +1,3 @@
-// Mars Rover Kata: Perseverence
-// import Plateau from './Plateau';
-
 class marsRover {
   /**
    * Mars Rovers - create a program to move rovers around a grid plateau. A rover’s position and location are represented by a combination of x and y coordinates and a letter representing one of the four cardinal compass points (N, E, S, W). For movement, NASA sends a string of letters, 'L', 'R' and 'M', for left, right and move respectively.
@@ -14,6 +11,26 @@ class marsRover {
    */
 
   constructor(currentPosition_xy, direction, grid_xy, obstacles) {
+    // Verify input as correct format
+    if (
+      direction != 'N' &&
+      direction != 'E' &&
+      direction != 'S' &&
+      direction != 'W'
+    ) {
+      throw 'Direction coordinates must be N, E, S or W';
+    }
+    if (
+      !Number.isInteger(currentPosition_xy[0]) &&
+      !Number.isInteger(currentPosition_xy[1])
+    ) {
+      throw 'X, Y coordinates must be an array of integers';
+    }
+    if (!Number.isInteger(grid_xy[0]) && !Number.isInteger(grid_xy[1])) {
+      throw 'Grid (i.e. plateau) coordinates must be integers';
+    }
+
+    // Initialize class variables
     this.grid_xy = grid_xy === undefined ? [5, 5] : grid_xy;
     this.currentPosition_xy =
       currentPosition_xy === undefined ? [0, 0] : currentPosition_xy;
@@ -42,7 +59,6 @@ class marsRover {
   // To move the Rover North(N), East(E), South(S) or West(W)
   // Includes ability to handle roll over case, negative value
   move() {
-    console.log(this.grid_xy);
     if (this.direction === 'N') {
       if (!this.hasObstacles()) {
         this.currentPosition_xy[1] =
@@ -71,7 +87,6 @@ class marsRover {
       }
     }
   }
-
   // Splits string input into separate commands: rotate(L or R) and move(N, E, S, W)
   execute(command) {
     let commands = command.split(``);
@@ -93,7 +108,6 @@ class marsRover {
   }
 }
 
-// in order to export
 module.exports = {
   marsRover,
 };

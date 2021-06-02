@@ -27,19 +27,19 @@ npm >= 6.14.11
 ```
 
 ## Install
-Install dependencies with:
+
 ```javascript
 npm install
 ```
 
 ## Usage
-Directly execute code with:
+
 ```javascript
 npm start
 ```
 
 ## Run Tests
-I used Jest for unit tests, run as follows:
+
 ```javascript
 npm test
 ```
