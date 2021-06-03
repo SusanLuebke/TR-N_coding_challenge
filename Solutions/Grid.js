@@ -1,11 +1,12 @@
 class Grid {
   /**
-   * Grid - create a class to encapsulate grid plateau. Obstacles to be future class.
+   * Grid - create a class to encapsulate grid plateau. Obstacles to be future input to grid.
    *
    * Args
    * -----
    * @param {array} grid - The constructed Grid object
-   * @param {array} obstacles - An array of x,y coordinates of known obstacle locations on the plateau; defunct rovers, rocks, canyons, etc.
+   * @param {array} obstacles - An array of x,y coordinates of known obstacle locations on the plateau;
+   * defunct rovers, rocks, canyons, etc.
    */
 
   // Expects a grid in the form of an array, such as [5, 5]

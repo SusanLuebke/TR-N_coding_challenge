@@ -1,6 +1,9 @@
 class MarsRover {
   /**
-   * Mars Rovers - create a class to move rovers around a grid plateau. A rover’s position and location are represented by a combination of x and y coordinates and a letter representing one of the four cardinal compass points (N, E, S, W). For movement, NASA sends a string of letters, 'L', 'R' and 'M', for left, right and move respectively.
+   * Mars Rovers - create a class to move rovers around a grid plateau.
+   * A rover’s position and location are represented by a combination of x and y coordinates and
+   * a letter representing one of the four cardinal compass points (N, E, S, W).
+   * For movement, NASA sends a string of letters, 'L', 'R' and 'M', for left, right and move respectively.
    *
    * Args
    * -----
@@ -10,7 +13,7 @@ class MarsRover {
    */
 
   constructor(currentPosition_xy, direction, grid) {
-    // Verify input as correct format
+    // Verify input as correct format for each of the inputs
     if (
       direction != 'N' &&
       direction != 'E' &&
@@ -24,6 +27,9 @@ class MarsRover {
       !Number.isInteger(currentPosition_xy[1])
     ) {
       throw new Error('X, Y coordinates must be an array of integers');
+    }
+    if (grid.constructor.name != 'Grid') {
+      throw new Error('The grid input must be of Grid class');
     }
 
     // Initialize class variables
@@ -52,42 +58,37 @@ class MarsRover {
   }
 
   // To move the Rover North(N), East(E), South(S) or West(W)
-  // Includes ability to handle roll over case, negative value
+  // Includes ability to handle roll over cases, negative value
+  // new_position is temporary storage of x,y until no obtacles confirmed
   move() {
+    let new_position = this.currentPosition_xy.slice(0);
     if (this.direction === 'N') {
-      if (!this.hasObstacles()) {
-        this.currentPosition_xy[1] =
-          (this.currentPosition_xy[1] + 1) % (this.grid_xy[1] + 1); // use modulo to return 0 for pos no.
-      }
+      new_position[1] = (new_position[1] + 1) % (this.grid_xy[1] + 1); // use modulo to return 0 for pos no.
     } else if (this.direction === 'E') {
-      if (!this.hasObstacles()) {
-        this.currentPosition_xy[0] =
-          (this.currentPosition_xy[0] + 1) % (this.grid_xy[0] + 1); // use modulo to return 0 for pos no.
-      }
+      new_position[0] = (new_position[0] + 1) % (this.grid_xy[0] + 1); // use modulo to return 0 for pos no.
     } else if (this.direction === 'S') {
-      if (!this.hasObstacles()) {
-        this.currentPosition_xy[1] -= 1;
-        if (this.currentPosition_xy[1] < 0) {
-          // addresses roll over case, neg
-          this.currentPosition_xy[1] += this.grid_xy[1] + 1;
-        }
+      new_position[1] -= 1;
+      if (new_position[1] < 0) {
+        // addresses roll over case, neg
+        new_position[1] += this.grid_xy[1] + 1;
       }
     } else if (this.direction === 'W') {
-      if (!this.hasObstacles()) {
-        this.currentPosition_xy[0] -= 1;
-        if (this.currentPosition_xy[0] < 0) {
-          // addresses roll over case, neg
-          this.currentPosition_xy[0] += this.grid_xy[0] + 1;
-        }
+      new_position[0] -= 1;
+      if (new_position[0] < 0) {
+        // addresses roll over case, neg
+        new_position[0] += this.grid_xy[0] + 1;
       }
+    }
+    if (!this.hasObstacles()) {
+      this.currentPosition_xy = new_position;
     }
   }
   // Splits string input into separate commands: rotate(L or R) and move(N, E, S, W)
   execute(command) {
     let commands = command.split(``);
-    for (let i = 0; i < commands.length; i++) {
-      if (commands[i] === 'L' || commands[i] === 'R') {
-        this.rotate(commands[i]);
+    for (const element of commands) {
+      if (element === 'L' || element === 'R') {
+        this.rotate(element);
       } else {
         this.move();
       }

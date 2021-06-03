@@ -23,7 +23,7 @@ describe('MarsRover', () => {
 
   test('Rover can execute a multifaceted command', () => {
     let command = 'RM';
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[1, 0], 'E']);
   });
 
@@ -31,31 +31,31 @@ describe('MarsRover', () => {
 
   test('Test for right roll over edge case', () => {
     let command = 'RMMMMMM'; // edge case off grid right
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[0, 0], 'E']);
   });
 
   test('Test for top roll over edge case', () => {
     let command = 'MMMMMM'; // edge case off grid top, rollover to initial start point
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[0, 0], 'N']);
   });
 
   test('Test for rotate roll over', () => {
     let command = 'RRRR'; // edge case off right of compassPoint, rollover to initial start point
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[0, 0], 'N']);
   });
 
   test('Test for rotate roll over, on lefthand side', () => {
     let command = 'L'; // edge case off left of compassPoint, negative
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[0, 0], 'W']);
   });
 
   test('Test for bottom roll over edge case', () => {
     let command = 'LLM'; // edge case off grid bottom, negative
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[0, 5], 'S']);
   });
 
@@ -64,14 +64,14 @@ describe('MarsRover', () => {
   test('Test case 1 from Mars Rover Kata; long scenerio', () => {
     newRover = new MarsRover([1, 2], 'N', new Grid([5, 5]));
     let command = 'LMLMLMLMM';
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[1, 3], 'N']);
   });
 
   test('Test case 2 from Mars Rover Kata; long scenerio', () => {
     newRover = new MarsRover([3, 3], 'E', new Grid([5, 5]));
     let command = 'MMRMMRMRRM';
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[5, 1], 'E']);
   });
 
@@ -80,7 +80,7 @@ describe('MarsRover', () => {
   test('Test for an uneven plateau/grid', () => {
     newRover = new MarsRover([0, 0], 'N', new Grid([2, 5]));
     let command = 'MMMMMMRMMM';
-    answer = newRover.execute(command);
+    let answer = newRover.execute(command);
     expect(answer).toEqual([[0, 0], 'E']);
   });
 
@@ -96,5 +96,11 @@ describe('MarsRover', () => {
     expect(() => {
       new MarsRover([1, 1], 'N', new Grid(['five', 'five']));
     }).toThrow('Grid (i.e. plateau) coordinates must be integers');
+  });
+
+  test('Throws an error if Grid (i.e. plateau) is not of Grid class', () => {
+    expect(() => {
+      new MarsRover([1, 1], 'N', [5, 5]);
+    }).toThrow('The grid input must be of Grid class');
   });
 });
