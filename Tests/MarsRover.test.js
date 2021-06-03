@@ -91,12 +91,6 @@ describe('MarsRover', () => {
     }).toThrow('Direction coordinates must be N, E, S or W');
   });
 
-  test('Throws an error if [x, y] coordinates are not integers', () => {
-    expect(() => {
-      new MarsRover(['one', 'one'], 'N', [5, 5]);
-    }).toThrow('X, Y coordinates must be an array of integers');
-  });
-
   test('Throws an error if Grid (i.e. plateau) coordinates are not integers', () => {
     expect(() => {
       new MarsRover([1, 1], 'N', ['five', 'five']);
