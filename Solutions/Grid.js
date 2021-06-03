@@ -1,4 +1,4 @@
-// Future Sprint Consideration, break out Grid and Obstacles into separate class
+// Break out of Grid and (future) Obstacles into separate class
 
 class Grid {
   // Expects a grid in the form of an array, such as [5, 5]

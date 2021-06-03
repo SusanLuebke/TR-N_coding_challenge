@@ -1,8 +1,9 @@
-const { MarsRover } = require('../Solutions/MarsRover');
+const MarsRover = require('../Solutions/MarsRover');
+const Grid = require('../Solutions/Grid');
 
 // Default setting is [0, 0], 'N' of a 5 x 5 grid
 beforeEach(() => {
-  newRover = new MarsRover([0, 0], 'N', [5, 5]);
+  newRover = new MarsRover([0, 0], 'N', new Grid([5, 5]));
 });
 
 describe('MarsRover', () => {
@@ -61,14 +62,14 @@ describe('MarsRover', () => {
   // Test cases as provided within Kata
 
   test('Test case 1 from Mars Rover Kata; long scenerio', () => {
-    newRover = new MarsRover([1, 2], 'N', [5, 5]);
+    newRover = new MarsRover([1, 2], 'N', new Grid([5, 5]));
     let command = 'LMLMLMLMM';
     answer = newRover.execute(command);
     expect(answer).toEqual([[1, 3], 'N']);
   });
 
   test('Test case 2 from Mars Rover Kata; long scenerio', () => {
-    newRover = new MarsRover([3, 3], 'E', [5, 5]);
+    newRover = new MarsRover([3, 3], 'E', new Grid([5, 5]));
     let command = 'MMRMMRMRRM';
     answer = newRover.execute(command);
     expect(answer).toEqual([[5, 1], 'E']);
@@ -77,7 +78,7 @@ describe('MarsRover', () => {
   // Test for an asymmetrical grid (i.e. plateau); rather than 6 x 6, 2 x 5
 
   test('Test for an uneven plateau/grid', () => {
-    newRover = new MarsRover([0, 0], 'N', [2, 5]);
+    newRover = new MarsRover([0, 0], 'N', new Grid([2, 5]));
     let command = 'MMMMMMRMMM';
     answer = newRover.execute(command);
     expect(answer).toEqual([[0, 0], 'E']);
@@ -87,13 +88,13 @@ describe('MarsRover', () => {
 
   test('Throws an error if direction is not N, E, S or W', () => {
     expect(() => {
-      new MarsRover([1, 1], 'north', [5, 5]);
+      new MarsRover([1, 1], 'north', new Grid([5, 5]));
     }).toThrow('Direction coordinates must be N, E, S or W');
   });
 
   test('Throws an error if Grid (i.e. plateau) coordinates are not integers', () => {
     expect(() => {
-      new MarsRover([1, 1], 'N', ['five', 'five']);
+      new MarsRover([1, 1], 'N', new Grid(['five', 'five']));
     }).toThrow('Grid (i.e. plateau) coordinates must be integers');
   });
 });

@@ -6,11 +6,11 @@ class MarsRover {
    * -----
    * @param {array} currentPosition_xy - the input, updated based on command
    * @param {string} direction - current direction, N, E, S or W, rover is facing; used in conjuction with currentPosition_xy
-   * @param {array} grid_xy - The upper right coordinates of the plateau; lower left coordinates assumed to be 0, 0
+   * @param {array} grid - The constructed Grid object
    * @param {array} obstacles - An array of x,y coordinates of known obstacle locations on the plateau; defunct rovers, rocks, canyons, etc.
    */
 
-  constructor(currentPosition_xy, direction, grid_xy, obstacles) {
+  constructor(currentPosition_xy, direction, grid, obstacles) {
     // Verify input as correct format
     if (
       direction != 'N' &&
@@ -18,20 +18,17 @@ class MarsRover {
       direction != 'S' &&
       direction != 'W'
     ) {
-      throw 'Direction coordinates must be N, E, S or W';
+      throw new Error('Direction coordinates must be N, E, S or W');
     }
     if (
       !Number.isInteger(currentPosition_xy[0]) &&
       !Number.isInteger(currentPosition_xy[1])
     ) {
-      throw 'X, Y coordinates must be an array of integers';
-    }
-    if (!Number.isInteger(grid_xy[0]) && !Number.isInteger(grid_xy[1])) {
-      throw 'Grid (i.e. plateau) coordinates must be integers';
+      throw new Error('X, Y coordinates must be an array of integers');
     }
 
     // Initialize class variables
-    this.grid_xy = grid_xy === undefined ? [5, 5] : grid_xy;
+    this.grid_xy = grid === undefined ? [5, 5] : [grid.x, grid.y];
     this.currentPosition_xy =
       currentPosition_xy === undefined ? [0, 0] : currentPosition_xy;
     this.direction = direction === undefined ? 'N' : direction; // NESW, LR
@@ -108,6 +105,4 @@ class MarsRover {
   }
 }
 
-module.exports = {
-  MarsRover,
-};
+module.exports = MarsRover;
