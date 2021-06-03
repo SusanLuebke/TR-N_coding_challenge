@@ -1,4 +1,4 @@
-class marsRover {
+class MarsRover {
   /**
    * Mars Rovers - create a program to move rovers around a grid plateau. A rover’s position and location are represented by a combination of x and y coordinates and a letter representing one of the four cardinal compass points (N, E, S, W). For movement, NASA sends a string of letters, 'L', 'R' and 'M', for left, right and move respectively.
    *
@@ -109,5 +109,5 @@ class marsRover {
 }
 
 module.exports = {
-  marsRover,
+  MarsRover,
 };
