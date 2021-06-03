@@ -102,12 +102,4 @@ describe('MarsRover', () => {
       new MarsRover([1, 1], 'N', ['five', 'five']);
     }).toThrow('Grid (i.e. plateau) coordinates must be integers');
   });
-
-  // Future Test for obstacle(s)
-  // test("Test for a obstacle", () => {
-  //   newRover = new MarsRover([0, 0], "N", [5, 5], [1, 1]);
-  //   let command = "MRM";
-  //   answer = newRover.execute(command);
-  //   expect(answer).toEqual([[0, 1], "E"]);
-  // });
 });
