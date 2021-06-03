@@ -1,11 +1,11 @@
-const { marsRover } = require('../Solutions/codingChallenge');
+const { MarsRover } = require('../Solutions/MarsRover');
 
 // Default setting is [0, 0], 'N' of a 5 x 5 grid
 beforeEach(() => {
-  newRover = new marsRover([0, 0], 'N', [5, 5]);
+  newRover = new MarsRover([0, 0], 'N', [5, 5]);
 });
 
-describe('marsRover', () => {
+describe('MarsRover', () => {
   test("Has an initial position of [0, 0], 'N'", () => {
     expect(newRover.currentPosition_xy).toEqual([0, 0]);
     expect(newRover.direction).toEqual('N');
@@ -61,14 +61,14 @@ describe('marsRover', () => {
   // Test cases as provided within Kata
 
   test('Test case 1 from Mars Rover Kata; long scenerio', () => {
-    newRover = new marsRover([1, 2], 'N', [5, 5]);
+    newRover = new MarsRover([1, 2], 'N', [5, 5]);
     let command = 'LMLMLMLMM';
     answer = newRover.execute(command);
     expect(answer).toEqual([[1, 3], 'N']);
   });
 
   test('Test case 2 from Mars Rover Kata; long scenerio', () => {
-    newRover = new marsRover([3, 3], 'E', [5, 5]);
+    newRover = new MarsRover([3, 3], 'E', [5, 5]);
     let command = 'MMRMMRMRRM';
     answer = newRover.execute(command);
     expect(answer).toEqual([[5, 1], 'E']);
@@ -77,7 +77,7 @@ describe('marsRover', () => {
   // Test for an asymmetrical grid (i.e. plateau); rather than 6 x 6, 2 x 5
 
   test('Test for an uneven plateau/grid', () => {
-    newRover = new marsRover([0, 0], 'N', [2, 5]);
+    newRover = new MarsRover([0, 0], 'N', [2, 5]);
     let command = 'MMMMMMRMMM';
     answer = newRover.execute(command);
     expect(answer).toEqual([[0, 0], 'E']);
@@ -87,25 +87,25 @@ describe('marsRover', () => {
 
   test('Throws an error if direction is not N, E, S or W', () => {
     expect(() => {
-      new marsRover([1, 1], 'north', [5, 5]);
+      new MarsRover([1, 1], 'north', [5, 5]);
     }).toThrow('Direction coordinates must be N, E, S or W');
   });
 
   test('Throws an error if [x, y] coordinates are not integers', () => {
     expect(() => {
-      new marsRover(['one', 'one'], 'N', [5, 5]);
+      new MarsRover(['one', 'one'], 'N', [5, 5]);
     }).toThrow('X, Y coordinates must be an array of integers');
   });
 
   test('Throws an error if Grid (i.e. plateau) coordinates are not integers', () => {
     expect(() => {
-      new marsRover([1, 1], 'N', ['five', 'five']);
+      new MarsRover([1, 1], 'N', ['five', 'five']);
     }).toThrow('Grid (i.e. plateau) coordinates must be integers');
   });
 
   // Future Test for obstacle(s)
   // test("Test for a obstacle", () => {
-  //   newRover = new marsRover([0, 0], "N", [5, 5], [1, 1]);
+  //   newRover = new MarsRover([0, 0], "N", [5, 5], [1, 1]);
   //   let command = "MRM";
   //   answer = newRover.execute(command);
   //   expect(answer).toEqual([[0, 1], "E"]);
