@@ -1,6 +1,13 @@
-// Break out of Grid and (future) Obstacles into separate class
-
 class Grid {
+  /**
+   * Grid - create a class to encapsulate grid plateau. Obstacles to be future class.
+   *
+   * Args
+   * -----
+   * @param {array} grid - The constructed Grid object
+   * @param {array} obstacles - An array of x,y coordinates of known obstacle locations on the plateau; defunct rovers, rocks, canyons, etc.
+   */
+
   // Expects a grid in the form of an array, such as [5, 5]
   constructor(grid_xy, obstacles) {
     if (!Number.isInteger(grid_xy[0]) || !Number.isInteger(grid_xy[1])) {
@@ -12,6 +19,7 @@ class Grid {
     }
 
     this.grid_xy = grid_xy;
+    this.obstacles = obstacles === undefined ? [] : obstacles;
   }
 
   get x() {

@@ -1,16 +1,15 @@
 class MarsRover {
   /**
-   * Mars Rovers - create a program to move rovers around a grid plateau. A rover’s position and location are represented by a combination of x and y coordinates and a letter representing one of the four cardinal compass points (N, E, S, W). For movement, NASA sends a string of letters, 'L', 'R' and 'M', for left, right and move respectively.
+   * Mars Rovers - create a class to move rovers around a grid plateau. A rover’s position and location are represented by a combination of x and y coordinates and a letter representing one of the four cardinal compass points (N, E, S, W). For movement, NASA sends a string of letters, 'L', 'R' and 'M', for left, right and move respectively.
    *
    * Args
    * -----
    * @param {array} currentPosition_xy - the input, updated based on command
    * @param {string} direction - current direction, N, E, S or W, rover is facing; used in conjuction with currentPosition_xy
    * @param {array} grid - The constructed Grid object
-   * @param {array} obstacles - An array of x,y coordinates of known obstacle locations on the plateau; defunct rovers, rocks, canyons, etc.
    */
 
-  constructor(currentPosition_xy, direction, grid, obstacles) {
+  constructor(currentPosition_xy, direction, grid) {
     // Verify input as correct format
     if (
       direction != 'N' &&
@@ -32,7 +31,6 @@ class MarsRover {
     this.currentPosition_xy =
       currentPosition_xy === undefined ? [0, 0] : currentPosition_xy;
     this.direction = direction === undefined ? 'N' : direction; // NESW, LR
-    this.obstacles = obstacles === undefined ? [] : obstacles;
     this.compassPoints = ['N', 'E', 'S', 'W'];
     this.compassPointsIndex = this.compassPoints.indexOf(this.direction); // to accept any initial postion beyond N
   }
